@@ -5,12 +5,12 @@ import com.jfisherdev.ezopenjmx.util.EZOpenJMXStringUtils;
 import javax.management.openmbean.CompositeType;
 import javax.management.openmbean.OpenDataException;
 import javax.management.openmbean.OpenType;
-import javax.management.openmbean.SimpleType;
-import javax.management.openmbean.TabularType;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 /**
+ * This class is used to build a {@link CompositeType} instance.
+ *
  * @author Josh Fisher
  */
 public final class CompositeTypeBuilder {
