@@ -32,11 +32,11 @@ public final class CompositeTypeBuilder {
         this.description = EZOpenJMXStringUtils.checkNotNullOrEmpty(description);
     }
 
-    public CompositeTypeBuilder addAttribute(OpenType<?> type, String name) {
-        return addAttribute(type, name, name);
+    public CompositeTypeBuilder addAttribute(String name, OpenType<?> type) {
+        return addAttribute(name, type, name);
     }
 
-    public CompositeTypeBuilder addAttribute(OpenType<?> type, String name, String description) {
+    public CompositeTypeBuilder addAttribute(String name, OpenType<?> type, String description) {
         attributes.add(new CompositeTypeAttribute(name, description, type));
         return this;
     }

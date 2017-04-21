@@ -6,13 +6,13 @@ import javax.management.openmbean.TabularType;
 import java.util.Set;
 
 /**
- * This class contains some convenience factory methods for creating {@link TabularType} instances.
+ * This class contains some convenience methods for creating and working with {@link TabularType} instances.
  *
  * @author Josh Fisher
  */
-public final class TabularTypeFactory {
+public final class TabularTypes {
 
-    private TabularTypeFactory() {
+    private TabularTypes() {
     }
 
     /**
@@ -23,8 +23,8 @@ public final class TabularTypeFactory {
      * @param indexNames set of key/index attribute names
      * @return a {@link TabularType} instance for the given row type and index names
      */
-    public static TabularType forRowType(CompositeType rowType, Set<String> indexNames) {
-        return forRowType(rowType.getTypeName(), rowType.getDescription(), rowType, indexNames);
+    public static TabularType createTabularType(CompositeType rowType, Set<String> indexNames) {
+        return createTabularType(rowType.getTypeName(), rowType.getDescription(), rowType, indexNames);
     }
 
     /**
@@ -37,7 +37,7 @@ public final class TabularTypeFactory {
      * @param indexNames  set of key/index attribute names
      * @return a {@link TabularType} instance
      */
-    public static TabularType forRowType(String typeName, String description, CompositeType rowType, Set<String> indexNames) {
+    public static TabularType createTabularType(String typeName, String description, CompositeType rowType, Set<String> indexNames) {
         try {
             return new TabularType(typeName, description, rowType, indexNames.toArray(new String[indexNames.size()]));
         } catch (OpenDataException e) {
